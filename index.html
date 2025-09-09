@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Online 100+ Tools - Convert, edit, and manipulate files easily. No installation required.">
+  <meta name="keywords" content="online tools, web tools free, image tools, text tools, Online converter, ">
+  <meta name="author" content="Md Raju Hasan/Md Liton Miya">
+  <title>Free Toolaxy - Free Online Tools</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f5f7fa; color: #333; transition: background 0.3s ease-in-out; }
+
+    /* Top Animation */
+    .top-banner {
+      text-align: center;
+      padding: 12px;
+      background: linear-gradient(90deg, #ff6a00, #ee0909);
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      animation: slideDown 1.5s ease-in-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Fancy Header */
+    .fancy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 50px;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: fadeDown 1s ease-in-out;
+    }
+
+    .fancy-header .logo {
+      font-size: 26px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      animation: float 3s ease-in-out infinite;
+    }
+    .fancy-header .logo i {
+      font-size: 30px;
+      color: #00c8ff;
+      animation: spin 6s linear infinite;
+    }
+    .fancy-header .logo .highlight {
+      color: #ffd700;
+    }
+
+    .fancy-header nav a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .fancy-header nav a:hover {
+      color: #ffeb3b;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Hero */
+    .hero { text-align: center; padding: 40px 20px; background: #fff; animation: fadeUp 1.5s ease-in-out; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    .hero p { color: #555; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Category Tabs */
+    .categories {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 15px; margin: 20px auto; padding: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .categories button {
+      padding: 10px 20px; border: none; border-radius: 8px;
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+      color: #fff; font-size: 16px;
+      cursor: pointer; transition: all 0.3s ease-in-out;
+    }
+    .categories button:hover, .categories button.active { 
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      transform: scale(1.05);
+    }
+
+    /* Layout */
+    .main {
+      display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px;
+    }
+
+    /* Tools Section */
+    .tools-section { display: none; animation: fadeIn 1s ease-in-out; }
+    .tools-section.active { display: block; }
+    .tools-section h2 { margin-top: 10px; }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .tool-card {
+      background: #fff; padding: 25px 20px; border-radius: 14px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-decoration: none; color: #333; font-weight: 500;
+      display: flex; flex-direction: column; align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .tool-card i { font-size: 28px; margin-bottom: 10px; color: #2575fc; transition: color 0.3s; }
+    .tool-card:hover { transform: translateY(-7px) scale(1.02); box-shadow: 0 8px 16px rgba(0,0,0,0.2); background: #eef3ff; }
+    .tool-card:hover i { color: #ff512f; }
+
+    /* Greeting Animation (Bottom) */
+    .greeting {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(90deg, #2575fc, #6a11cb);
+      color: #fff;
+      margin-top: 30px;
+      border-radius: 12px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .greeting h2 {
+      font-size: 1.6rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Bottom Ads */
+    .bottom-ads { text-align: center; margin: 30px auto; animation: fadeUp 2s ease-in-out; }
+    .bottom-ads .ads-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .bottom-ads .ad-box {
+      width: 300px;
+      height: 250px;
+      background: #eee;
+      border: 1px dashed #999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .bottom-ads .ad-box:hover { background: #ddd; }
+
+    /* Footer */
+    footer { text-align: center; padding: 15px; background: #1e1e1e; color: #fff; font-size: 14px; margin-top: 30px; animation: fadeIn 2s ease-in-out; }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .bottom-ads .ads-row { flex-direction: column; align-items: center; }
+      .bottom-ads .ad-box { width: 100%; height: 200px; }
+    }
+    @media (max-width: 768px) {
+      .fancy-header { flex-direction: column; padding: 15px 25px; text-align: center; }
+      .fancy-header nav { margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Animated Banner -->
+  <div class="top-banner">
+    🚀 Welcome to Free Toolaxy – Free Online Tools at Your Fingertips!
+  </div>
+
+  <!-- Improved Header -->
+  <header class="fancy-header">
+    <div class="logo">
+      <i class="fa-solid fa-snowflake"></i>
+      <span>Free <span class="highlight">Toolaxy</span></span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="https://flexitoolspro.blogspot.com/">Blog</a>
+      <a href="Page/contact.html">Contact</a>
+      <a href="Page/Privacy.html">Privacy Policy</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>100+ Free Online Tools</h1>
+    <p>Convert, edit, and manipulate files with our easy-to-use online tools. No installation required.</p>
+  </section>
+
+  <!-- Categories -->
+  <div class="categories">
+    <button class="active"onclick="showSection('image')">🖼️ Image Tools</button>
+    <button onclick="showSection('text')">✍️ Text Tools</button>
+    <button onclick="showSection('audio')">🎵 Audio Tools</button>
+    <button onclick="showSection('video')">🎥 Video Tools</button>
+    <button onclick="showSection('pdf')">📄 PDF Tools</button>
+    <button onclick="showSection('qr')">🔳 QR Tools</button>
+  </div>
+
+  <!-- Main Layout -->
+  <div class="main">
+    <div>
+      <!-- Image Tools -->
+      <section id="image" class="tools-section active">
+        <h2>🖼️ Image Tools</h2>
+        <div class="tools-grid">
+          <a href="Image/img-com.html" class="tool-card"><i class="fa-regular fa-file-word"></i> Image Compressor</a>
+          <a href="Image/img-pdf.html" class="tool-card"><i class="fa-solid fa-file-pdf"></i> Image to PDF</a>
+          <a href="Image/Img-invert.html" class="tool-card"><i class="fa-solid fa-adjust"></i> Invert Image</a>
+          <a href="Image/img-text.html" class="tool-card"><i class="fa-solid fa-image"></i> Image to text Extractor</a>
+          <a href="Image/jpg-vector.html" class="tool-card"><i class="fa-solid fa-image"></i> Jpg to Vector </a>
+          <a href="Image/Png-psd.html" class="tool-card"><i class="fa-solid fa-image"></i> PNG to PSD </a>
+          <a href="Image/avif-jpg.html" class="tool-card"><i class="fa-solid fa-image"></i> Avif to Jpg  </a>
+          <a href="Image/web-jpg-png.html" class="tool-card"><i class="fa-solid fa-image"></i> Web to Png-Jpg  </a>
+          <a href="Image/Crop-image.html" class="tool-card"><i class="fa-solid fa-image"></i> Crop Image  </a>
+          <a href="Image/image-upscale.html" class="tool-card"><i class="fa-solid fa-image"></i>Image Upscale  </a>
+          <a href="Image/image-vector.html" class="tool-card"><i class="fa-solid fa-image"></i>Vector Maker  </a>
+          <a href="Image/black-white.html" class="tool-card"><i class="fa-solid fa-image"></i>Image Black & white  </a>
+          <a href="Image/img-round.html" class="tool-card"><i class="fa-solid fa-image"></i>Image Round Maker  </a>
+          <a href="Image/Fllip-image.html" class="tool-card"><i class="fa-solid fa-image"></i>Flip Image </a>
+          <a href="Image/Pdf-jpg.html" class="tool-card"><i class="fa-solid fa-image"></i>PDF to Jpg </a>
+        </div>
+      </section>
+
+      <!-- Text Tools -->
+      <section id="text" class="tools-section">
+        <h2>✍️ Text Tools</h2>
+        <div class="tools-grid">
+          <a href="text/text-pdf.html" class="tool-card"><i class="fa-solid fa-file-text"></i> Text to PDF</a>
+          <a href="text/word-counter.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Word Counter</a>
+          <a href="text/Case-converter.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Case Converter</a>
+          <a href="text/find-replace.html" class="tool-card"><i class="fa-regular fa-file-word"></i> Find & Replace</a>
+          <a href="text/Lorem Ipsum.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Lorem Ipsum Generator</a>
+          <a href="text/Numbering-line.html" class="tool-card"><i class="fa-regular fa-file-word"></i> Numbering Line </a>
+          <a href="text/front-replace.html" class="tool-card"><i class="fa-regular fa-file-word"></i> Text Front Changer </a>
+          <a href="text/text-extractor.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Text Extractor </a>
+          <a href="text/text-emoji.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Text to Emoji Replacer </a>
+          <a href="text/text-binary.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Text to Binary </a>
+          <a href="text/text-cleaner.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Text cleaner tool </a>
+          <a href="text/repeat-text.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Repeat Text </a>
+          <a href="text/text-lenth.html" class="tool-card"><i class="fa-regular fa-file-text"></i> Text Length Calculator</a>
+          <a href="tools/rood " class="tool-card"><i class="fa-regular fa-file-text"></i> Add Text to Photo</a>
+          <a href="text/text-unicode.html" class="tool-card"><i class="fa-regular fa-file-word"></i> Text to Unicode</a>
+        </div>
+      </section>
+
+      <!-- Audio Tools -->
+      <section id="audio" class="tools-section">
+        <h2>🎵 Audio Tools</h2>
+        <div class="tools-grid">
+          <a href="tools/mp3-cutter.html" class="tool-card"><i class="fa-solid fa-scissors"></i> MP3 Cutter</a>
+          <a href="tools/audio-converter.html" class="tool-card"><i class="fa-solid fa-music"></i> Audio Converter</a>
+        </div>
+      </section>
+
+      <!-- Video Tools -->
+      <section id="video" class="tools-section">
+        <h2>🎥 Video Tools</h2>
+        <div class="tools-grid">
+          <a href="tools/video-to-mp3.html" class="tool-card"><i class="fa-solid fa-music"></i> Video to MP3</a>
+          <a href="tools/video-compressor.html" class="tool-card"><i class="fa-solid fa-film"></i> Video Compressor</a>
+        </div>
+      </section>
+
+      <!-- PDF Tools -->
+      <section id="pdf" class="tools-section">
+        <h2>📄 PDF Tools</h2>
+        <div class="tools-grid">
+          <a href="tool/Pdf-text.html" class="tool-card"><i class="fa-solid fa-file-word"></i> PDF to Word</a>
+          <a href="tools/word-to-pdf.html" class="tool-card"><i class="fa-solid fa-file-arrow-down"></i> Word to PDF</a>
+          <a href="tools/pdf-to-text.html" class="tool-card"><i class="fa-regular fa-file-lines"></i> PDF to Text</a>
+          <a href="tools/text-to-pdf.html" class="tool-card"><i class="fa-solid fa-file-pdf"></i> Text to PDF</a>
+          <a href="tools/SFASEDF" class="tool-card"><i class="fa-solid fa-file-pdf"></i> PDF to JPG</a>
+          <a href="tools/SFASEDF" class="tool-card"><i class="fa-solid fa-file-pdf"></i> PDF Compressor</a>
+          <a href="tools/SFASEDF" class="tool-card"><i class="fa-solid fa-file-pdf"></i> Add watermark</a>
+        
+        
+        
+        
+        
+        </div>
+      </section>
+
+      <!-- QR Tools -->
+      <section id="qr" class="tools-section">
+        <h2>🔳 QR Tools</h2>
+        <div class="tools-grid">
+          <a href="tools/qr-code-scanner.html" class="tool-card"><i class="fa-solid fa-qrcode"></i> QR Code Scanner</a>
+        </div>
+      </section>
+
+      <!-- Developer Tools -->
+      <section id="dev" class="tools-section">
+        <h2>💻 Developer Tools</h2>
+        <div class="tools-grid">
+          <a href="tools/json-formatter.html" class="tool-card"><i class="fa-solid fa-code"></i> JSON Formatter</a>
+          <a href="tools/base64-encoder.html" class="tool-card"><i class="fa-solid fa-lock"></i> Base64 Encoder</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Greeting Animation -->
+  <div class="greeting">
+    <h2>👋 Welcome to Free Toolaxy – Your Free Online Tools Hub!</h2>
+  </div>
+
+  <!-- Ads Section at Bottom -->
+  <div class="bottom-ads">
+    <p>Advertisement</p>
+    <div class="ads-row">
+      <div class="ad-box">300x250 Ad Banner</div>
+      <div class="ad-box">300x250 Ad Banner</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ToolsHub | All Rights Reserved</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.tools-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.categories button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
